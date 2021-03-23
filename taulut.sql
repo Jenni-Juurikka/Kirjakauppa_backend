@@ -15,3 +15,12 @@ create table tuote (
     trnro smallint not null,
     foreign key (trnro) references tuoteryhma(trnro)
 );
+
+create table tilaus (
+    tilausnro int primary key,
+    astunnus varchar(10) not null,
+    tilauspvm datetime,
+    tapa varchar(1) not null,
+    tila varchar(1) null,
+    foreign key (astunnus) references asiakas(astunnus)
+);
