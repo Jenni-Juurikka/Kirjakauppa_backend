@@ -1,11 +1,12 @@
 <?php
 function openDb(): object {
-    $ini = parse_ini_file("./config.ini", true);
+    $ini = parse_ini_file("../config.ini", true);
 
     $host = $ini['host'];
     $database = $ini['database'];
     $user = $ini['user'];
     $db = new PDO("mysql:host=$host;dbname=$database;chartset=utf8", $user, '');
+    $db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     return $db;
 }
 
