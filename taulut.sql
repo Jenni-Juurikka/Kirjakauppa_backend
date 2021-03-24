@@ -2,6 +2,8 @@ drop database if exists kirjakauppa;
 
 create database kirjakauppa;
 
+use kirjakauppa;
+
 create table tuoteryhma (
     trnro smallint primary key auto_increment,
     trnimi varchar(20) not null 
@@ -23,4 +25,8 @@ create table tilaus (
     tapa varchar(1) not null,
     tila varchar(1) null,
     foreign key (astunnus) references asiakas(astunnus)
+);
+
+create table tilausrivi (
+    
 );
