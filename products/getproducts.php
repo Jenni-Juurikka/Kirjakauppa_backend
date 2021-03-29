@@ -14,6 +14,6 @@ try {
     selectAsJson($db,"select * from tuote where trnro = $trnro");
 
 }
-catch (PDOException $doexp) {
+catch (PDOException $pdoex) {
     returnError($pdoex);
 }
