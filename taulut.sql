@@ -5,22 +5,24 @@ create database kirjakauppa;
 use kirjakauppa;
 
 create table tuoteryhma (
-    trnro smallint primary key auto_increment,
-    trnimi varchar(20) not null 
+    id int primary key auto_increment,
+    name varchar(50) not null
 );
 
 create table tuote (
-    tuotenro int primary key auto_increment,
-    tuotenimi varchar(20) not null,
-    hinta decimal(6, 2) not null,
-    kustannus decimal(6, 2) not null,
-    trnro smallint not null,
-    foreign key (trnro) references tuoteryhma(trnro)
+    id int primary key auto_increment,
+    name varchar(100) not null,
+    price double (10,2) not null,
+    image varchar(50),
+    category_id int not null,
+    index category_id(category_id),
+    foreign key (category_id) references tuoteryhma(id)
+        on delete restrict
 );
 
 create table tilaus (
     tilausnro int primary key,
-    astunnus varchar(10) not null,
+    astunnus varchar(6) not null,
     tilauspvm datetime,
     tapa varchar(1) not null,
     tila varchar(1) null,
