@@ -10,7 +10,7 @@ $category_id = $uri[1];
 
 try {
     $db = openDb();
-    selectAsJson($db,"select * from tuote where id = 1");
+    selectAsJson($db,"select * from tuote where category_id = $category_id");
 
 }
 catch (PDOException $pdoex) {
