@@ -7,11 +7,11 @@ $uri = parse_url(filter_input(INPUT_SERVER,'PATH_INFO'),PHP_URL_PATH);
 
 $parameters = explode('/',$uri);
 
-$trnro = $uri[1];
+$id = $uri[1];
 
 try {
     $db = openDb();
-    selectAsJson($db,"select * from tuote where trnro = $trnro");
+    selectAsJson($db,"select * from tuote where id = $id");
 
 }
 catch (PDOException $pdoex) {
