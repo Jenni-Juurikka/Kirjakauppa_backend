@@ -9,8 +9,8 @@ create table tuoteryhma (
     name varchar(50) not null
 );
 
-insert into tuoteryhma (id, name) values (1, "Tietokirjat");
-insert into tuoteryhma (id, name) values (2, "Romaanit");
+insert into tuoteryhma (id, name) values (3, "Tietokirjat");
+insert into tuoteryhma (id, name) values (4, "Romaanit");
 
 create table tuote (
     id int primary key auto_increment,
