@@ -30,6 +30,19 @@ create table tilaus (
     foreign key (astunnus) references asiakas(astunnus)
 );
 
+CREATE TABLE asiakas (
+astunnus CHAR(16),
+asnimi CHAR(50),
+puhelinro int(12),
+osoite char(50),
+postitmp CHAR(35),
+postinro CHAR(5),
+maa char(30),
+asvuosi SMALLINT,
+CONSTRAINT asiakas_pk PRIMARY KEY (astunnus),
+CONSTRAINT asnimi_un UNIQUE (asnimi)
+);
+
 INSERT INTO `tuote`(`id`, `name`, `author`, `price`, `image`, `category_id`) VALUES (1, 'Christian ja Judith','Marcus Barnes',5.00, 'img.png', 11);
 INSERT INTO `tuote`(`id`, `name`, `author`, `price`, `image`, `category_id`) VALUES (2, 'Sitten tuli Mo','Lavina Coenraad',4.00, 'img.png', 11);
 INSERT INTO `tuote`(`id`, `name`, `author`, `price`, `image`, `category_id`) VALUES (3, 'Joku kuten Kathy','Nirav Samo',49.00, 'img.png', 11);
