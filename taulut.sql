@@ -30,7 +30,6 @@ create table tilaus (
     foreign key (astunnus) references asiakas(astunnus)
 );
 
-tuote
 INSERT INTO `tuote`(`id`, `name`, `author`, `price`, `image`, `category_id`) VALUES (1, 'Christian ja Judith','Marcus Barnes',5.00, 'img.png', 11);
 INSERT INTO `tuote`(`id`, `name`, `author`, `price`, `image`, `category_id`) VALUES (2, 'Sitten tuli Mo','Lavina Coenraad',4.00, 'img.png', 11);
 INSERT INTO `tuote`(`id`, `name`, `author`, `price`, `image`, `category_id`) VALUES (3, 'Joku kuten Kathy','Nirav Samo',49.00, 'img.png', 11);
@@ -56,7 +55,6 @@ INSERT INTO `tuote`(`id`, `name`, `author`, `price`, `image`, `category_id`) VAL
 INSERT INTO `tuote`(`id`, `name`, `author`, `price`, `image`, `category_id`) VALUES (23, 'Apinoiden vuosi','Pankaj Gaila',80.00, 'img.png', 18);
 INSERT INTO `tuote`(`id`, `name`, `author`, `price`, `image`, `category_id`) VALUES (24, 'Totuus','Danai',109.00, 'img.png', 18);
 
-tuoteryhma
 INSERT INTO `tuoteryhma`(`id`, `name`) VALUES (11,'Romanssi');
 INSERT INTO `tuoteryhma`(`id`, `name`) VALUES (12,'Kauhu');
 INSERT INTO `tuoteryhma`(`id`, `name`) VALUES (13,'Rikos');
