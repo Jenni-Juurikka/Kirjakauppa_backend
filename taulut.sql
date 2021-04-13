@@ -25,9 +25,16 @@ create table tilaus (
     tilausnro int primary key,
     astunnus varchar(6) not null,
     tilauspvm datetime,
-    tapa varchar(1) not null,
-    tila varchar(1) null,
     foreign key (astunnus) references asiakas(astunnus)
+);
+
+CREATE TABLE tilausrivi (
+tilausnro INTEGER NOT NULL,
+rivinro SMALLINT NOT NULL,
+tuotenro INTEGER, 
+kpl INTEGER,
+CONSTRAINT tilausrivi_pk PRIMARY KEY (tilausnro, rivinro),
+CONSTRAINT tilausrivi_tuote_fk FOREIGN KEY (tuotenro) REFERENCES tuote (id)
 );
 
 CREATE TABLE asiakas (
