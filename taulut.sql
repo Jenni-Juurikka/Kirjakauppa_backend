@@ -50,6 +50,16 @@ CONSTRAINT asiakas_pk PRIMARY KEY (astunnus),
 CONSTRAINT asnimi_un UNIQUE (asnimi)
 );
 
+CREATE TABLE henkilosto (
+    tunnus int primary key auto_increment,
+    nimi char(30) not null,
+    osoite char(50),
+    postinro char(5),
+    postitmp char(20),
+    puhelinro int(12),
+    rooli char(30)
+);
+
 INSERT INTO `tuote`(`id`, `name`, `author`, `price`, `image`, `category_id`) VALUES (1, 'Christian ja Judith','Marcus Barnes',5.00, 'img_1.png', 11);
 INSERT INTO `tuote`(`id`, `name`, `author`, `price`, `image`, `category_id`) VALUES (2, 'Sitten tuli Mo','Lavina Coenraad',4.00, 'img_2".png', 11);
 INSERT INTO `tuote`(`id`, `name`, `author`, `price`, `image`, `category_id`) VALUES (3, 'Joku kuten Kathy','Nirav Samo',49.00, 'img_3.png', 11);
@@ -83,3 +93,48 @@ INSERT INTO `tuoteryhma`(`id`, `name`) VALUES (15,'Fantasia');
 INSERT INTO `tuoteryhma`(`id`, `name`) VALUES (16,'Lasten kirjallisuus');
 INSERT INTO `tuoteryhma`(`id`, `name`) VALUES (17,'Sarjakuvat');
 INSERT INTO `tuoteryhma`(`id`, `name`) VALUES (18,'Dystopia');
+
+INSERT INTO asiakas (astunnus, asnimi, puhelinro, osoite, postinro, postitmp, maa, asvuosi)
+    VALUES ('', '', , '', '', '', '', );
+INSERT INTO asiakas (astunnus, asnimi, puhelinro, osoite, postinro, postitmp, maa, asvuosi)
+    VALUES ('', '', , '', '', '', '', );
+INSERT INTO asiakas (astunnus, asnimi, puhelinro, osoite, postinro, postitmp, maa, asvuosi)
+    VALUES ('', '', , '', '', '', '', );
+INSERT INTO asiakas (astunnus, asnimi, puhelinro, osoite, postinro, postitmp, maa, asvuosi)
+    VALUES ('', '', , '', '', '', '', );
+INSERT INTO asiakas (astunnus, asnimi, puhelinro, osoite, postinro, postitmp, maa, asvuosi)
+    VALUES ('', '', , '', '', '', '', );
+INSERT INTO asiakas (astunnus, asnimi, puhelinro, osoite, postinro, postitmp, maa, asvuosi)
+    VALUES ('', '', , '', '', '', '', );
+
+INSERT INTO tilaus (tilausnro, astunnus, tilauspvm) VALUES (, '', );
+INSERT INTO tilaus (tilausnro, astunnus, tilauspvm) VALUES (, '', );
+INSERT INTO tilaus (tilausnro, astunnus, tilauspvm) VALUES (, '', );
+INSERT INTO tilaus (tilausnro, astunnus, tilauspvm) VALUES (, '', );
+INSERT INTO tilaus (tilausnro, astunnus, tilauspvm) VALUES (, '', );
+INSERT INTO tilaus (tilausnro, astunnus, tilauspvm) VALUES (, '', );
+INSERT INTO tilaus (tilausnro, astunnus, tilauspvm) VALUES (, '', );
+
+INSERT INTO tilausrivi (tilausnro, rivinro, tuotenro, kpl) VALUES ( , , , );
+INSERT INTO tilausrivi (tilausnro, rivinro, tuotenro, kpl) VALUES ( , , , );
+INSERT INTO tilausrivi (tilausnro, rivinro, tuotenro, kpl) VALUES ( , , , );
+INSERT INTO tilausrivi (tilausnro, rivinro, tuotenro, kpl) VALUES ( , , , );
+INSERT INTO tilausrivi (tilausnro, rivinro, tuotenro, kpl) VALUES ( , , , );
+INSERT INTO tilausrivi (tilausnro, rivinro, tuotenro, kpl) VALUES ( , , , );
+INSERT INTO tilausrivi (tilausnro, rivinro, tuotenro, kpl) VALUES ( , , , );
+INSERT INTO tilausrivi (tilausnro, rivinro, tuotenro, kpl) VALUES ( , , , );
+INSERT INTO tilausrivi (tilausnro, rivinro, tuotenro, kpl) VALUES ( , , , );
+INSERT INTO tilausrivi (tilausnro, rivinro, tuotenro, kpl) VALUES ( , , , );
+INSERT INTO tilausrivi (tilausnro, rivinro, tuotenro, kpl) VALUES ( , , , );
+INSERT INTO tilausrivi (tilausnro, rivinro, tuotenro, kpl) VALUES ( , , , );
+INSERT INTO tilausrivi (tilausnro, rivinro, tuotenro, kpl) VALUES ( , , , );
+
+
+INSERT INTO henkilosto (nimi, osoite, postinro, postitmp, puhelinro, rooli) 
+    VALUES ('Jenni Juurikka', '', '', 'Oulu', , 'työntekijä');
+INSERT INTO henkilosto (nimi, osoite, postinro, postitmp, puhelinro, rooli) 
+    VALUES ('Joonas Mankisenmaa', '', '', 'Oulu', , 'työntekijä');
+INSERT INTO henkilosto (nimi, osoite, postinro, postitmp, puhelinro, rooli) 
+    VALUES ('Joanna Turunen', '', '', 'Oulu', , 'työntekijä');
+INSERT INTO henkilosto (nimi, osoite, postinro, postitmp, puhelinro, rooli) 
+    VALUES ('Valeria Velichko', '', '', 'Oulu', , 'työntekijä');
