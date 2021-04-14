@@ -38,14 +38,15 @@ CONSTRAINT tilausrivi_tuote_fk FOREIGN KEY (tuotenro) REFERENCES tuote (id)
 );
 
 CREATE TABLE asiakas (
-astunnus CHAR(16),
-asnimi CHAR(50),
-puhelinro int(12),
-osoite char(50),
-postitmp CHAR(35),
-postinro CHAR(5),
-maa char(30),
-asvuosi SMALLINT,
+astunnus varchar(16) NOT null,
+asnimi varchar(50) NOT null,
+salasana varchar(255) not null,
+puhelinro int(12) NOT null,
+osoite varchar(50) NOT null,
+postitmp varchar(35) NOT null,
+postinro varchar(5) NOT null,
+maa varchar(30) NOT null,
+asvuosi SMALLINT
 CONSTRAINT asiakas_pk PRIMARY KEY (astunnus),
 CONSTRAINT asnimi_un UNIQUE (asnimi)
 );
@@ -94,8 +95,8 @@ INSERT INTO `tuoteryhma`(`id`, `name`) VALUES (16,'Lasten kirjallisuus');
 INSERT INTO `tuoteryhma`(`id`, `name`) VALUES (17,'Sarjakuvat');
 INSERT INTO `tuoteryhma`(`id`, `name`) VALUES (18,'Dystopia');
 
-INSERT INTO asiakas (astunnus, asnimi, puhelinro, osoite, postinro, postitmp, maa, asvuosi)
-    VALUES ('', '', , '', '', '', '', );
+insert into asiakas(astunnus, asnimi, salasana, puhelinro, osoite, postitmp, postinro, maa, asvuosi) values 
+('Jmankisenmaa', 'Joonas Mankisenmaa', '$2y$10$UwH5lbnWmABfLxUD9mCpOeDgyFZ0pjY02ADDfedYdUQr5kjvqyv2W', '0501233456778', 'Katukuja5', 'Michigan', '90420', 'Hell', '1800');
 INSERT INTO asiakas (astunnus, asnimi, puhelinro, osoite, postinro, postitmp, maa, asvuosi)
     VALUES ('', '', , '', '', '', '', );
 INSERT INTO asiakas (astunnus, asnimi, puhelinro, osoite, postinro, postitmp, maa, asvuosi)
