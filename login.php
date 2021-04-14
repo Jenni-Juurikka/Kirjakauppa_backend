@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'inc/headers.php';
 require_once 'inc/functions.php';
 
@@ -16,6 +17,7 @@ try {
     // Fetch_OBJ voi korvata hakemalla hakasuluilla [] jos haluaa.
     $kayttaja = $query->fetch(PDO::FETCH_OBJ);
     // Kun haetaan Fetch_obj nuoli syntaksilla löytyy kentät tietokannasta.
+    if ($kayttaja) {
     $salasanaDb = $kayttaja->salasana; 
     // Tarkistaa onko salattu salasana ja selkokielinen salasana samat. 
     if (password_verify($password, $salasanaDb)) {
@@ -24,8 +26,13 @@ try {
             'id' => $kayttaja->astunnus,
             'asnimi' => $kayttaja->asnimi,
         );
+        $_SESSION['root'] = $kayttaja;
     // Jos salasana on väärin.
     // header('HTTP/1.1 401 Unauthorized'); tarkoittaa että palvelua on kutsuttu väärällä tunnistella.
+    } else {
+        header('HTTP/1.1 401 Unauthorized');
+        $data = array('');
+    }
     } else {
         header('HTTP/1.1 401 Unauthorized');
         $data = array('');
@@ -35,5 +42,4 @@ try {
 } catch (PDOException $e) {
     returnError($e);
 }
-
 ?>
