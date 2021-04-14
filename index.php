@@ -257,6 +257,76 @@
 
             ?>
         </div>
+        <div id="tuoteryhmat">
+            <h4>Tilaukset</h4>
+            <form action="savetilaus.php" method="POST">
+                <div>
+                    <label>Tilauksen numero</label>
+                    <input id="tilausnro" name="tilausnro" maxlength="11" type="int" required />
+                </div>
+                <div>
+                    <label>Asiakastunnus</label>
+                    <input id="astunnus" name="astunnus" maxlength="6" type="text" required />
+                </div>
+                <div>
+                    <label>Tilauspäivä</label>
+                    <input id="tilauspvm" name="tilauspvm" type="date" required />
+                </div>
+                <div>
+                    <input type="submit" value="Lisää uusi tilaus"/>
+                </div>
+            </form>
+            <?php 
+                $host = "localhost";
+                $database = "kirjakauppa";
+                $user = "root";
+
+                try {
+                    $db = new PDO("mysql:host=$host;dbname=$database;chartset=utf8", $user, '');
+                    $db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+                    $lue = $db->prepare("SELECT * FROM tilaus");
+                    $lue->execute();
+
+                    $lue->setFetchMode(PDO::FETCH_ASSOC);
+
+                    $result = $lue->fetchAll();
+
+                    echo "<table border='1'>
+                    <tr>
+                    <th>Tilauksen numero</th>
+                    <th>Asiakastunnus</th>
+                    <th>Tilauspäivä</th>
+                    <th>Poista</th>
+                    <th>Muokkaa</th>
+                    </tr>";
+
+
+                    foreach ($result as $row) {
+                        echo "<tr>";
+                        echo "<td>" . $row['tilausnro'] . "</td>";
+                        echo "<td>" . $row['astunnus'] . "</td>";
+                        echo "<td>" . $row['tilauspvm'] . "</td>";
+
+                        $tilausnro = $row['tilausnro'];
+                        $astunnus = $row['astunnus'];
+                        $tilauspvm = $row['tilauspvm'];
+
+                        echo "<td><a href='deletetilaus.php?tilausnro=$tilausnro'>Delete</a></td>";
+
+                        echo "<td><a href='updatetilaus.php?tilausnro=$tilausnro&astunnus=$astunnus&tilauspvm=$tilauspvm'>Update</a></td>";
+
+                    }
+
+                    echo "</table>";
+
+                    
+                }
+                catch (PDOException $pdoex) {
+                    returnError($pdoex);
+                }
+
+            ?>
+        </div>
     </body>
 
 </html>
