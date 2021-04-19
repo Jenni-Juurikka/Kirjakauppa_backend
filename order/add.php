@@ -33,7 +33,7 @@ try {
     $tilausnro = executeInsert($db,$sql);
 
     foreach ($cart as $tuote) {
-        $sql = "INSERT INTO tilaus (astunnus) 
+        $sql = "INSERT INTO tilausrivi (tilausnro, tuotenro) 
             VALUES (" . $tilausnro . "," .
                 $tuote->id .")";
         executeInsert($db, $sql);
@@ -41,7 +41,7 @@ try {
 
     $db->commit(); 
 
-    
+    header('HTTP/1.1 200 OK');
 }
 catch (PDOException $pdoex) {
     returnError($pdoex);
