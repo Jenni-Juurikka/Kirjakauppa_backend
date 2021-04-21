@@ -1,26 +1,27 @@
 <?php 
 
-$id = filter_input(INPUT_POST, "id", FILTER_SANITIZE_NUMBER_INT);
-$name = filter_input(INPUT_POST, "name", FILTER_SANITIZE_STRING);
+require_once '../inc/headers.php';
+require_once '../inc/functions.php';
 
-$host = "localhost";
-$database = "kirjakauppa";
-$user = "root";
+$input = json_decode(file_get_contents('php://input'));
+$id = filter_var($input->id, FILTER_SANITIZE_NUMBER_INT);
+$name = filter_var($input->name, FILTER_SANITIZE_STRING);
 
 try {
-    $db = new PDO("mysql:host=$host;dbname=$database;chartset=utf8", $user, '');
-    $db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+    $db = openDb();
     $update = $db->prepare("UPDATE tuoteryhma SET name = :name WHERE id = :id");
 
     $update->bindValue(":id", $id, PDO::PARAM_INT);
     $update->bindValue(":name", $name, PDO::PARAM_STR);
-
     $update->execute();
 
-    header("Location: http://localhost/kirjakauppa/index.php");
+    header('HTTP/1.1 200 OK');
+    $data = array('id' => $id, 'name' => $name);
+    echo json_encode($data);
 
-} catch(PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
-    }
+    
+} catch(PDOException $pdoex) {
+    returnError($pdoex);
+}
 
 ?>

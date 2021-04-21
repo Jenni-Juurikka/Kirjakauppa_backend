@@ -97,38 +97,6 @@ INSERT INTO `tuoteryhma`(`id`, `name`) VALUES (18,'Dystopia');
 
 insert into asiakas(astunnus, asnimi, salasana, puhelinro, osoite, postitmp, postinro, maa, asvuosi) values 
 ('Jmankisenmaa', 'Joonas Mankisenmaa', '$2y$10$UwH5lbnWmABfLxUD9mCpOeDgyFZ0pjY02ADDfedYdUQr5kjvqyv2W', '0501233456778', 'Katukuja5', 'Michigan', '90420', 'Hell', '1800');
-INSERT INTO asiakas (astunnus, asnimi, puhelinro, osoite, postinro, postitmp, maa, asvuosi)
-    VALUES ('', '', , '', '', '', '', );
-INSERT INTO asiakas (astunnus, asnimi, puhelinro, osoite, postinro, postitmp, maa, asvuosi)
-    VALUES ('', '', , '', '', '', '', );
-INSERT INTO asiakas (astunnus, asnimi, puhelinro, osoite, postinro, postitmp, maa, asvuosi)
-    VALUES ('', '', , '', '', '', '', );
-INSERT INTO asiakas (astunnus, asnimi, puhelinro, osoite, postinro, postitmp, maa, asvuosi)
-    VALUES ('', '', , '', '', '', '', );
-INSERT INTO asiakas (astunnus, asnimi, puhelinro, osoite, postinro, postitmp, maa, asvuosi)
-    VALUES ('', '', , '', '', '', '', );
-
-INSERT INTO tilaus (tilausnro, astunnus, tilauspvm) VALUES (, '', );
-INSERT INTO tilaus (tilausnro, astunnus, tilauspvm) VALUES (, '', );
-INSERT INTO tilaus (tilausnro, astunnus, tilauspvm) VALUES (, '', );
-INSERT INTO tilaus (tilausnro, astunnus, tilauspvm) VALUES (, '', );
-INSERT INTO tilaus (tilausnro, astunnus, tilauspvm) VALUES (, '', );
-INSERT INTO tilaus (tilausnro, astunnus, tilauspvm) VALUES (, '', );
-INSERT INTO tilaus (tilausnro, astunnus, tilauspvm) VALUES (, '', );
-
-INSERT INTO tilausrivi (tilausnro, rivinro, tuotenro, kpl) VALUES ( , , , );
-INSERT INTO tilausrivi (tilausnro, rivinro, tuotenro, kpl) VALUES ( , , , );
-INSERT INTO tilausrivi (tilausnro, rivinro, tuotenro, kpl) VALUES ( , , , );
-INSERT INTO tilausrivi (tilausnro, rivinro, tuotenro, kpl) VALUES ( , , , );
-INSERT INTO tilausrivi (tilausnro, rivinro, tuotenro, kpl) VALUES ( , , , );
-INSERT INTO tilausrivi (tilausnro, rivinro, tuotenro, kpl) VALUES ( , , , );
-INSERT INTO tilausrivi (tilausnro, rivinro, tuotenro, kpl) VALUES ( , , , );
-INSERT INTO tilausrivi (tilausnro, rivinro, tuotenro, kpl) VALUES ( , , , );
-INSERT INTO tilausrivi (tilausnro, rivinro, tuotenro, kpl) VALUES ( , , , );
-INSERT INTO tilausrivi (tilausnro, rivinro, tuotenro, kpl) VALUES ( , , , );
-INSERT INTO tilausrivi (tilausnro, rivinro, tuotenro, kpl) VALUES ( , , , );
-INSERT INTO tilausrivi (tilausnro, rivinro, tuotenro, kpl) VALUES ( , , , );
-INSERT INTO tilausrivi (tilausnro, rivinro, tuotenro, kpl) VALUES ( , , , );
 
 
 INSERT INTO henkilosto (nimi, osoite, postinro, postitmp, puhelinro, rooli) 
