@@ -29,7 +29,7 @@ create table tilaus (
 );
 
 CREATE TABLE tilausrivi (
-tilausnro INTEGER NOT NULL,
+tilausnro INTEGER NOT NULL auto_increment,
 rivinro SMALLINT NOT NULL,
 tuotenro INTEGER, 
 kpl INTEGER,
@@ -38,7 +38,7 @@ CONSTRAINT tilausrivi_tuote_fk FOREIGN KEY (tuotenro) REFERENCES tuote (id)
 );
 
 CREATE TABLE asiakas (
-astunnus varchar(16) NOT null,
+astunnus varchar(16) NOT null auto_increment,
 asnimi varchar(50) NOT null,
 salasana varchar(255) not null,
 puhelinro int(12) NOT null,
