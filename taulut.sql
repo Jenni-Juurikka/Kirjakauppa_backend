@@ -21,34 +21,34 @@ create table tuote (
         on delete restrict
 );
 
+CREATE TABLE asiakas (
+    astunnus varchar(16) NOT null auto_increment,
+    asnimi varchar(50) NOT null,
+    salasana varchar(255) not null,
+    puhelinro int(12) NOT null,
+    osoite varchar(50) NOT null,
+    postitmp varchar(35) NOT null,
+    postinro varchar(5) NOT null,
+    maa varchar(30) NOT null,
+    asvuosi SMALLINT
+    CONSTRAINT asiakas_pk PRIMARY KEY (astunnus),
+    CONSTRAINT asnimi_un UNIQUE (asnimi)
+);
+
 create table tilaus (
-    tilausnro int primary key,
+    tilausnro int primary key auto_increment,
     astunnus varchar(6) not null,
     tilauspvm datetime,
     foreign key (astunnus) references asiakas(astunnus)
 );
 
 CREATE TABLE tilausrivi (
-tilausnro INTEGER NOT NULL auto_increment,
-rivinro SMALLINT NOT NULL,
-tuotenro INTEGER, 
-kpl INTEGER,
-CONSTRAINT tilausrivi_pk PRIMARY KEY (tilausnro, rivinro),
-CONSTRAINT tilausrivi_tuote_fk FOREIGN KEY (tuotenro) REFERENCES tuote (id)
-);
-
-CREATE TABLE asiakas (
-astunnus varchar(16) NOT null auto_increment,
-asnimi varchar(50) NOT null,
-salasana varchar(255) not null,
-puhelinro int(12) NOT null,
-osoite varchar(50) NOT null,
-postitmp varchar(35) NOT null,
-postinro varchar(5) NOT null,
-maa varchar(30) NOT null,
-asvuosi SMALLINT
-CONSTRAINT asiakas_pk PRIMARY KEY (astunnus),
-CONSTRAINT asnimi_un UNIQUE (asnimi)
+    tilausnro INTEGER NOT NULL auto_increment,
+    rivinro SMALLINT NOT NULL,
+    tuotenro INTEGER, 
+    kpl INTEGER,
+    CONSTRAINT tilausrivi_pk PRIMARY KEY (tilausnro, rivinro),
+    CONSTRAINT tilausrivi_tuote_fk FOREIGN KEY (tuotenro) REFERENCES tuote (id)
 );
 
 CREATE TABLE henkilosto (
