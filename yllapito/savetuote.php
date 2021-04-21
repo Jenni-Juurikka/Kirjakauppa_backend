@@ -1,35 +1,36 @@
 <?php 
 
-$id = filter_input(INPUT_POST, "id", FILTER_SANITIZE_NUMBER_INT);
-$name = filter_input(INPUT_POST, "name", FILTER_SANITIZE_STRING);
-$author = filter_input(INPUT_POST, "author", FILTER_SANITIZE_STRING);
-$price = filter_input(INPUT_POST, "price", FILTER_SANITIZE_STRING);
-$image = filter_input(INPUT_POST, "image", FILTER_SANITIZE_STRING);
-$category_id = filter_input(INPUT_POST, "category_id", FILTER_SANITIZE_NUMBER_INT);
+require_once '../inc/headers.php';
+require_once '../inc/functions.php';
 
-$host = "localhost";
-$database = "kirjakauppa";
-$user = "root";
+$input = json_decode(file_get_contents('php://input'));
+$name = filter_var($input->name, FILTER_SANITIZE_STRING);
+$author = filter_var($input->author, FILTER_SANITIZE_STRING);
+$price = filter_var($input->price, FILTER_SANITIZE_STRING);
+$image = filter_var($input->image, FILTER_SANITIZE_STRING);
+$category_id = filter_var($input->category_id, FILTER_SANITIZE_NUMBER_INT);
+
 
 try {
-    $db = new PDO("mysql:host=$host;dbname=$database;chartset=utf8", $user, '');
-    $db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-    $save = $db->prepare("INSERT INTO tuote (id, name, author, price, image, category_id) 
-        VALUES (:id, :name, :author, :price, :image, :category_id)");
+    $db = openDb();
+    $save = $db->prepare("INSERT INTO tuote (name, author, price,/* image,*/ category_id) 
+        VALUES (:name, :author, :price,/* :image,*/ :category_id)");
 
-    $save->bindValue(":id", $id, PDO::PARAM_INT);
     $save->bindValue(":name", $name, PDO::PARAM_STR);
     $save->bindValue(":author", $author, PDO::PARAM_STR);
     $save->bindValue(":price", $price, PDO::PARAM_STR);
-    $save->bindValue(":image", $image, PDO::PARAM_STR);
+    //$save->bindValue(":image", $image, PDO::PARAM_STR);
     $save->bindValue(":category_id", $category_id, PDO::PARAM_INT);
 
     $save->execute();
 
-    header("Location: http://localhost/kirjakauppa/index.php");
+    header('HTTP/1.1 200 OK');
+    $data = array('id' => $db->lastInsertId(), 'name' => $name, 'author' => $author, 'price' => $price, /*'image' => $image, */ 'category_id' => $category_id);
+    echo json_encode($data);
 
-} catch(PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
-    }
+
+} catch(PDOException $pdoex) {
+    returnError($pdoex);
+}
 
 ?>

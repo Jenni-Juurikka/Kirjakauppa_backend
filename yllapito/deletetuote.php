@@ -1,29 +1,27 @@
 <?php 
 
-$id = filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
-$name = filter_input(INPUT_GET, "name", FILTER_SANITIZE_STRING);
-$author = filter_input(INPUT_GET, "author", FILTER_SANITIZE_STRING);
-$price = filter_input(INPUT_GET, "price", FILTER_SANITIZE_STRING);
-$image = filter_input(INPUT_GET, "image", FILTER_SANITIZE_STRING);
-$category_id = filter_input(INPUT_GET, "category_id", FILTER_SANITIZE_NUMBER_INT);
+require_once '../inc/headers.php';
+require_once '../inc/functions.php';
 
-$host = "localhost";
-$database = "kirjakauppa";
-$user = "root";
+$input = json_decode(file_get_contents('php://input'));
+$id = filter_var($input->id, FILTER_SANITIZE_NUMBER_INT);
+
 
 try {
-    $db = new PDO("mysql:host=$host;dbname=$database;chartset=utf8", $user, '');
-    $db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+    $db = openDb();
     $del = $db->prepare("DELETE from tuote WHERE id = :id");
 
     $del->bindValue(":id", $id, PDO::PARAM_INT);
 
     $del->execute();
 
-    header("Location: http://localhost/kirjakauppa/index.php");
+    header('HTTP/1.1 200 OK');
+    $data = array('id' => $id);
+    echo json_encode($data);
 
-} catch(PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
-    }
+    
+} catch(PDOException $pdoex) {
+    returnError($pdoex);
+}
 
 ?>
