@@ -6,7 +6,7 @@ require_once 'inc/functions.php';
 // Tämä tekee sen että jos kirjautumista ei ole niin ei päästetä katsomaan tiettyä asiaa
 // esim oma profiilia tms.
 
-if (isset($_SESSION['root'])) {
+if (!isset($_SESSION['user'])) {
     header('HTTP/1.1 401 Unauthorized');
     exit;
 }

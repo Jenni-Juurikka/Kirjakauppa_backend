@@ -26,7 +26,7 @@ try {
             'id' => $kayttaja->astunnus,
             'asnimi' => $kayttaja->asnimi,
         );
-        $_SESSION['root'] = $kayttaja;
+        $_SESSION['user'] = $kayttaja;
     // Jos salasana on väärin.
     // header('HTTP/1.1 401 Unauthorized'); tarkoittaa että palvelua on kutsuttu väärällä tunnistella.
     } else {

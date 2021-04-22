@@ -1,4 +1,10 @@
-<!DOCTYPE html>
+<?php
+require_once './inc/headers.php';
+require_once './inc/functions.php';
+
+?>
+
+<!-- <!DOCTYPE html>
 <html>
     <head>
         <title>Kirjakaupan ylläpito</title>
@@ -329,4 +335,4 @@
         </div>
     </body>
 
-</html>
+</html> -->
