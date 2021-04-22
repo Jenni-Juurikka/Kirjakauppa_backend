@@ -7,7 +7,7 @@ $input = json_decode(file_get_contents('php://input'));
 $name = filter_var($input->name, FILTER_SANITIZE_STRING);
 $author = filter_var($input->author, FILTER_SANITIZE_STRING);
 $price = filter_var($input->price, FILTER_SANITIZE_STRING);
-$image = filter_var($input->image, FILTER_SANITIZE_STRING);
+//$image = filter_var($input->image, FILTER_SANITIZE_STRING);
 $category_id = filter_var($input->category_id, FILTER_SANITIZE_NUMBER_INT);
 
 
@@ -25,7 +25,8 @@ try {
     $save->execute();
 
     header('HTTP/1.1 200 OK');
-    $data = array('id' => $db->lastInsertId(), 'name' => $name, 'author' => $author, 'price' => $price, /*'image' => $image, */ 'category_id' => $category_id);
+    $data = array('id' => $db->lastInsertId(), 'name' => $name, 'author' => $author, 
+        'price' => $price, /*'image' => $image, */ 'category_id' => $category_id);
     echo json_encode($data);
 
 
