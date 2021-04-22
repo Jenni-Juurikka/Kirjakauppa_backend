@@ -39,9 +39,8 @@ create table tilaus (
 
 CREATE TABLE tilausrivi (
     tilausnro int NOT NULL,
-    rivinro int NOT NULL,
-    tuotenro int, 
-    kpl int,
+    rivinro int primary key auto_increment,
+    tuotenro int,
     foreign key (tilausnro) REFERENCES tilaus(tilausnro),
     foreign key (tuotenro) REFERENCES tuote(id)
 );
@@ -67,7 +66,7 @@ INSERT INTO `tuoteryhma`(`name`) VALUES ('Sarjakuvat');
 INSERT INTO `tuoteryhma`(`name`) VALUES ('Dystopia');
 
 INSERT INTO `tuote`(`name`, `author`, `price`, `image`, `category_id`) VALUES ('Christian ja Judith','Marcus Barnes',5.00, 'img_1.png', 1);
-INSERT INTO `tuote`( `name`, `author`, `price`, `image`, `category_id`) VALUES ('Sitten tuli Mo','Lavina Coenraad',4.00, 'img_2".png', 1);
+INSERT INTO `tuote`( `name`, `author`, `price`, `image`, `category_id`) VALUES ('Sitten tuli Mo','Lavina Coenraad',4.00, 'img_2.png', 1);
 INSERT INTO `tuote`( `name`, `author`, `price`, `image`, `category_id`) VALUES ('Joku kuten Kathy','Nirav Samo',49.00, 'img_3.png', 1);
 INSERT INTO `tuote`(`name`, `author`, `price`, `image`, `category_id`) VALUES ('Hopeisen pianon kirous','Jessica Andrews',34.00, 'img_4.png', 2);
 INSERT INTO `tuote`(`name`, `author`, `price`, `image`, `category_id`) VALUES ('Kadonnut veljen poika','Pilar Michaela',93.00, 'img_5.png', 2);
