@@ -10,34 +10,27 @@ $sql = "select * from asiakas where astunnus = '$username'";
 
 try {
     $db = new PDO("mysql:host=localhost;dbname=kirjakauppa;chartset=utf8", 'root', '');
-    // suorittaa sql lauseen.
     $query = $db->query($sql);
-    // Haetaan tietokannasta se yksi rivi joka löytyy usernamella.
-    // FETCH_OBJ Hakee tiedon objectina eli oliona.
-    // Fetch_OBJ voi korvata hakemalla hakasuluilla [] jos haluaa.
-    $kayttaja = $query->fetch(PDO::FETCH_OBJ);
-    // Kun haetaan Fetch_obj nuoli syntaksilla löytyy kentät tietokannasta.
-    if ($kayttaja) {
-    $salasanaDb = $kayttaja->salasana; 
-    // Tarkistaa onko salattu salasana ja selkokielinen salasana samat. 
+    $user = $query->fetch(PDO::FETCH_OBJ);
+    if ($user) {
+    $salasanaDb = $user->salasana;  
     if (password_verify($password, $salasanaDb)) {
         header('HTTP/1.1 200 OK');
         $data = array (
-            'id' => $kayttaja->astunnus,
-            'asnimi' => $kayttaja->asnimi,
+            'id' => $user->astunnus,
+            'asnimi' => $user->asnimi,
+            'password' => $user->salasana
         );
-        $_SESSION['user'] = $kayttaja;
-    // Jos salasana on väärin.
-    // header('HTTP/1.1 401 Unauthorized'); tarkoittaa että palvelua on kutsuttu väärällä tunnistella.
+        $_SESSION['user'] = $user;
     } else {
         header('HTTP/1.1 401 Unauthorized');
-        $data = array('');
-    }
+        $data = array('message' => "Unsuccessfull login.");
+      }
     } else {
-        header('HTTP/1.1 401 Unauthorized');
-        $data = array('');
+      header('HTTP/1.1 401 Unauthorized');
+      $data = array('message' => "Unsuccessfull login.");
     }
-    // Mentiin sitten iffiin tai elseen palautetaan data-taulukko jsonina.
+    
     echo json_encode($data);
 } catch (PDOException $e) {
     returnError($e);
