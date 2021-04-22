@@ -62,7 +62,7 @@ CREATE TABLE henkilosto (
 );
 
 INSERT INTO `tuote`(`id`, `name`, `author`, `price`, `image`, `category_id`) VALUES (1, 'Christian ja Judith','Marcus Barnes',5.00, 'img_1.png', 11);
-INSERT INTO `tuote`(`id`, `name`, `author`, `price`, `image`, `category_id`) VALUES (2, 'Sitten tuli Mo','Lavina Coenraad',4.00, 'img_2".png', 11);
+INSERT INTO `tuote`(`id`, `name`, `author`, `price`, `image`, `category_id`) VALUES (2, 'Sitten tuli Mo','Lavina Coenraad',4.00, 'img_2.png', 11);
 INSERT INTO `tuote`(`id`, `name`, `author`, `price`, `image`, `category_id`) VALUES (3, 'Joku kuten Kathy','Nirav Samo',49.00, 'img_3.png', 11);
 INSERT INTO `tuote`(`id`, `name`, `author`, `price`, `image`, `category_id`) VALUES (4, 'Hopeisen pianon kirous','Jessica Andrews',34.00, 'img_4.png', 12);
 INSERT INTO `tuote`(`id`, `name`, `author`, `price`, `image`, `category_id`) VALUES (5, 'Kadonnut veljen poika','Pilar Michaela',93.00, 'img_5.png', 12);
