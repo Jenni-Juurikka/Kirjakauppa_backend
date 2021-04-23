@@ -3,10 +3,10 @@ session_start();
 require_once 'inc/headers.php';
 require_once 'inc/functions.php';
 
-$username = filter_input(INPUT_POST, 'astunnus', FILTER_SANITIZE_STRING);
+$username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
 $password = filter_input(INPUT_POST, 'salasana', FILTER_SANITIZE_STRING);
 
-$sql = "select * from asiakas where astunnus = '$username'";
+$sql = "select * from asiakas where username = '$username'";
 
 try {
     $db = new PDO("mysql:host=localhost;dbname=kirjakauppa;chartset=utf8", 'root', '');
@@ -17,7 +17,7 @@ try {
     if (password_verify($password, $salasanaDb)) {
         header('HTTP/1.1 200 OK');
         $data = array (
-            'id' => $user->astunnus,
+            'username' => $user->username,
             'asnimi' => $user->asnimi,
             'password' => $user->salasana
         );

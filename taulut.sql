@@ -21,6 +21,7 @@ create table tuote (
 
 CREATE TABLE asiakas (
     astunnus int primary key auto_increment,
+    username varchar(15) NOT null,
     asnimi varchar(50) NOT null,
     salasana varchar(255),
     puhelinro int(12) NOT null,
@@ -89,11 +90,6 @@ INSERT INTO `tuote`(`name`, `author`, `price`, `image`, `category_id`) VALUES ('
 INSERT INTO `tuote`(`name`, `author`, `price`, `image`, `category_id`) VALUES ('2033, Meritähden vuosi','Parthalan Duha',67.00, 'img_22.png', 8);
 INSERT INTO `tuote`(`name`, `author`, `price`, `image`, `category_id`) VALUES ('Apinoiden vuosi','Pankaj Gaila',80.00, 'img_23.png', 8);
 INSERT INTO `tuote`(`name`, `author`, `price`, `image`, `category_id`) VALUES ('Totuus','Danai Gizem',109.00, 'img_24.png', 8);
-
-
-insert into asiakas(astunnus, asnimi, salasana, puhelinro, osoite, postitmp, postinro, maa) values 
-('Jmankisenmaa', 'Joonas Mankisenmaa', '$2y$10$UwH5lbnWmABfLxUD9mCpOeDgyFZ0pjY02ADDfedYdUQr5kjvqyv2W', '0501233456778', 'Katukuja5', 'Michigan', '90420', 'Hell');
-
 
 INSERT INTO henkilosto (nimi, postitmp, rooli) 
     VALUES ('Jenni Juurikka', 'Oulu', 'työntekijä');
