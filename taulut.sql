@@ -89,7 +89,8 @@ INSERT INTO `tuote`(`name`, `author`, `price`, `image`, `category_id`) VALUES ('
 INSERT INTO `tuote`(`name`, `author`, `price`, `image`, `category_id`) VALUES ('Apinoiden vuosi','Pankaj Gaila',80.00, 'img_23.png', 8);
 INSERT INTO `tuote`(`name`, `author`, `price`, `image`, `category_id`) VALUES ('Totuus','Danai Gizem',109.00, 'img_24.png', 8);
 
-INSERT INTO `asiakas`(`astunnus`, `username`, `asnimi`, `salasana`, `puhelinro`, `osoite`, `postitmp`, `postinro`, `maa`) VALUES ('1', 'jman','joonas','auto','123','talakuja','oulu','91800','suomi');
+INSERT INTO `asiakas`(`astunnus`, `username`, `asnimi`, `salasana`, `puhelinro`, `osoite`, `postitmp`, `postinro`, `maa`) 
+    VALUES ('1', 'jman','joonas','auto','123','talakuja','oulu','91800','suomi');
 
 INSERT INTO henkilosto (nimi, postitmp, rooli) 
     VALUES ('Jenni Juurikka', 'Oulu', 'työntekijä');
