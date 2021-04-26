@@ -56,7 +56,6 @@ CREATE TABLE henkilosto (
     rooli char(30)
 );
 
-
 INSERT INTO `tuoteryhma`(`name`) VALUES ('Romanssi');
 INSERT INTO `tuoteryhma`(`name`) VALUES ('Kauhu');
 INSERT INTO `tuoteryhma`(`name`) VALUES ('Rikos');
@@ -101,3 +100,20 @@ INSERT INTO henkilosto (nimi, postitmp, rooli)
     VALUES ('Joanna Turunen', 'Oulu', 'työntekijä');
 INSERT INTO henkilosto (nimi, postitmp, rooli) 
     VALUES ('Valeria Velichko', 'Oulu', 'työntekijä');
+
+
+
+--     create table aukiolo (
+--     paiva SMALLINT,
+--     auki varchar(5),
+--     kiinni varchar(5)
+-- );
+
+-- INSERT INTO `aukiolo`(`paiva`, `auki`, `kiinni`) VALUES ('1','7:00','18:00');
+-- INSERT INTO `aukiolo`(`paiva`, `auki`, `kiinni`) VALUES ('2','7:00','18:00');
+-- INSERT INTO `aukiolo`(`paiva`, `auki`, `kiinni`) VALUES ('3','7:00','18:00');
+-- INSERT INTO `aukiolo`(`paiva`, `auki`, `kiinni`) VALUES ('4','7:00','18:00');
+-- INSERT INTO `aukiolo`(`paiva`, `auki`, `kiinni`) VALUES ('5','7:00','18:00');
+-- INSERT INTO `aukiolo`(`paiva`, `auki`, `kiinni`) VALUES ('6','10:00','16:00');
+-- INSERT INTO `aukiolo`(`paiva`, `auki`, `kiinni`) VALUES ('7','12:00','15:00');
+

@@ -9,7 +9,7 @@ $password = filter_input(INPUT_POST, 'salasana', FILTER_SANITIZE_STRING);
 $sql = "select * from asiakas where username = '$username'";
 
 try {
-    $db = new PDO("mysql:host=localhost;dbname=kirjakauppa;chartset=utf8", 'root', '');
+    $db = openDb();
     $query = $db->query($sql);
     $user = $query->fetch(PDO::FETCH_OBJ);
     if ($user) {
