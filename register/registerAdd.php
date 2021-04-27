@@ -14,6 +14,7 @@ $osoite = filter_var($input->osoite,FILTER_SANITIZE_STRING);
 $postitmp = filter_var($input->postitmp,FILTER_SANITIZE_STRING);
 $postinro = filter_var($input->postinro,FILTER_SANITIZE_STRING);
 $maa = filter_var($input->maa,FILTER_SANITIZE_STRING);
+$hash = password_hash($salasana, PASSWORD_DEFAULT);
 
 try {
     $db = openDb();
@@ -22,7 +23,7 @@ try {
     VALUES ('".
         filter_var($astunnus,FILTER_SANITIZE_STRING) . "','" . 
         filter_var($asnimi,FILTER_SANITIZE_STRING) . "','" . 
-        filter_var($salasana,FILTER_SANITIZE_STRING) . "','" . 
+        filter_var($hash,FILTER_SANITIZE_STRING) . "','" . 
         filter_var($puhelinro,FILTER_SANITIZE_STRING) . "','" . 
         filter_var($osoite,FILTER_SANITIZE_STRING) . "','" . 
         filter_var($postitmp,FILTER_SANITIZE_STRING) . "','" . 

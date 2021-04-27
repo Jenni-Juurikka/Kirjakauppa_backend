@@ -102,17 +102,17 @@ INSERT INTO henkilosto (nimi, postitmp, rooli)
 
 
 
---     create table aukiolo (
---     paiva SMALLINT,
---     auki varchar(5),
---     kiinni varchar(5)
--- );
+    create table aukiolo (
+    paiva varchar(20),
+    auki varchar(5),
+    kiinni varchar(5)
+);
 
--- INSERT INTO `aukiolo`(`paiva`, `auki`, `kiinni`) VALUES ('1','7:00','18:00');
--- INSERT INTO `aukiolo`(`paiva`, `auki`, `kiinni`) VALUES ('2','7:00','18:00');
--- INSERT INTO `aukiolo`(`paiva`, `auki`, `kiinni`) VALUES ('3','7:00','18:00');
--- INSERT INTO `aukiolo`(`paiva`, `auki`, `kiinni`) VALUES ('4','7:00','18:00');
--- INSERT INTO `aukiolo`(`paiva`, `auki`, `kiinni`) VALUES ('5','7:00','18:00');
--- INSERT INTO `aukiolo`(`paiva`, `auki`, `kiinni`) VALUES ('6','10:00','16:00');
--- INSERT INTO `aukiolo`(`paiva`, `auki`, `kiinni`) VALUES ('7','12:00','15:00');
+INSERT INTO `aukiolo`(`paiva`, `auki`, `kiinni`) VALUES ('1','7:00','18:00');
+INSERT INTO `aukiolo`(`paiva`, `auki`, `kiinni`) VALUES ('2','7:00','18:00');
+INSERT INTO `aukiolo`(`paiva`, `auki`, `kiinni`) VALUES ('3','7:00','18:00');
+INSERT INTO `aukiolo`(`paiva`, `auki`, `kiinni`) VALUES ('4','7:00','18:00');
+INSERT INTO `aukiolo`(`paiva`, `auki`, `kiinni`) VALUES ('5','7:00','18:00');
+INSERT INTO `aukiolo`(`paiva`, `auki`, `kiinni`) VALUES ('6','10:00','16:00');
+INSERT INTO `aukiolo`(`paiva`, `auki`, `kiinni`) VALUES ('7','12:00','15:00');
 
