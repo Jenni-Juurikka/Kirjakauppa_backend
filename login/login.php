@@ -18,7 +18,6 @@ try {
         header('HTTP/1.1 200 OK');
         $data = array (
             'username' => $user->username,
-            'asnimi' => $user->asnimi,
             'password' => $user->salasana
         );
         $_SESSION['user'] = $user;
