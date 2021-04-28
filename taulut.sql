@@ -40,6 +40,7 @@ create table tilaus (
 
 CREATE TABLE tilausrivi (
     tilausnro int NOT NULL,
+    rivinro int auto_increment,
     tuotenro int,
     foreign key (tilausnro) REFERENCES tilaus(tilausnro),
     foreign key (tuotenro) REFERENCES tuote(id)
