@@ -10,15 +10,6 @@ try {
 
     $data = $show->fetchAll(PDO::FETCH_ASSOC);
 
-    // $data = [];
-    // $asiakkaat = [];
-
-    // foreach($result as $row) {
-    //     array_push($asiakkaat, $row);
-    // }
-
-    // $data['asiakas'] = $asiakkaat;
-
     header('HTTP/1.1 200 OK');
     echo json_encode($data);
 

@@ -40,7 +40,6 @@ create table tilaus (
 
 CREATE TABLE tilausrivi (
     tilausnro int NOT NULL,
-    rivinro int auto_increment,
     tuotenro int,
     foreign key (tilausnro) REFERENCES tilaus(tilausnro),
     foreign key (tuotenro) REFERENCES tuote(id)
@@ -110,11 +109,11 @@ INSERT INTO henkilosto (nimi, postitmp, rooli)
     kiinni varchar(5)
 );
 
-INSERT INTO `aukiolo`(`paiva`, `auki`, `kiinni`) VALUES ('1','7:00','18:00');
-INSERT INTO `aukiolo`(`paiva`, `auki`, `kiinni`) VALUES ('2','7:00','18:00');
-INSERT INTO `aukiolo`(`paiva`, `auki`, `kiinni`) VALUES ('3','7:00','18:00');
-INSERT INTO `aukiolo`(`paiva`, `auki`, `kiinni`) VALUES ('4','7:00','18:00');
-INSERT INTO `aukiolo`(`paiva`, `auki`, `kiinni`) VALUES ('5','7:00','18:00');
-INSERT INTO `aukiolo`(`paiva`, `auki`, `kiinni`) VALUES ('6','10:00','16:00');
-INSERT INTO `aukiolo`(`paiva`, `auki`, `kiinni`) VALUES ('7','12:00','15:00');
+INSERT INTO `aukiolo`(`paiva`, `auki`, `kiinni`) VALUES ('MA','7:00','18:00');
+INSERT INTO `aukiolo`(`paiva`, `auki`, `kiinni`) VALUES ('TI','7:00','18:00');
+INSERT INTO `aukiolo`(`paiva`, `auki`, `kiinni`) VALUES ('KE','7:00','18:00');
+INSERT INTO `aukiolo`(`paiva`, `auki`, `kiinni`) VALUES ('TO','7:00','18:00');
+INSERT INTO `aukiolo`(`paiva`, `auki`, `kiinni`) VALUES ('PE','7:00','18:00');
+INSERT INTO `aukiolo`(`paiva`, `auki`, `kiinni`) VALUES ('LA','10:00','16:00');
+INSERT INTO `aukiolo`(`paiva`, `auki`, `kiinni`) VALUES ('SU','12:00','15:00');
 
