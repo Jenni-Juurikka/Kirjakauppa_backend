@@ -15,7 +15,7 @@ create table tuote (
     author varchar(100) not null,
     price double (10,2) not null,
     image varchar(50),
-    description varchar(255),
+    description text,
     category_id int not null,
     foreign key (category_id) references tuoteryhma(id)
 );
