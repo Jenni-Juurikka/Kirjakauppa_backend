@@ -1,9 +1,7 @@
 <?php 
-require_once '../inc/functions.php';
+
 require_once '../inc/headers.php';
-
-
-$db = null;
+require_once '../inc/functions.php';
 
 $input = json_decode(file_get_contents('php://input'));
 $name = filter_var($input->name, FILTER_SANITIZE_STRING);

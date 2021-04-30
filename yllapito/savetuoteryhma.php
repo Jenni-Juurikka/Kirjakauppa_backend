@@ -12,9 +12,11 @@ try {
     $save = $db->prepare("INSERT INTO tuoteryhma (name) VALUES (:name)");
 
     $save->bindValue(':name', $name,PDO::PARAM_STR);
+    
     $save->execute();
 
     header('HTTP/1.1 200 OK');
+
     $data = array('id' => $db->lastInsertId(), 'name' => $name);
     echo json_encode($data);
 
